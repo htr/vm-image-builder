@@ -1,6 +1,6 @@
 # vm image builder
 
-This repo contains a almost-ready-to-use Debian VM image builder.
+This repo contains a almost-ready-to-use Debian VM image builder. A nixos version can be found in this [branch](https://github.com/htr/vm-image-builder/tree/nixos).
 
 
 ### Quickstart
