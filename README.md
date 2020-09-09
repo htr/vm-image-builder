@@ -1,6 +1,6 @@
 # vm image builder
 
-This repo contains a almost-ready-to-use Debian VM image builder.
+This repo contains a almost-ready-to-use nixos VM image builder.
 
 
 ### Quickstart
