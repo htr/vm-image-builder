@@ -5,11 +5,13 @@ This repo contains a almost-ready-to-use Debian VM image builder.
 
 ### Quickstart
 
-* edit [the ansible playbook](./artifacts/playbook.yml): you might want to remove that public key ;)
+DigitalOcean droplet:
 
-* run the [builder script](./build.sh): `./build.sh -o test.qcow2 -s5`
+* run `./build-digitalocean.sh`. You'll get a DigitalOcean ready image in `output/nixos.qcow2.gz`. This image will configure the hostname and root's ssh keys.
 
-By default, the image [has](./artifacts/preseed.cfg#L63) a functional cloud-init environment and a ssh server.
+Generic VM image:
+
+* take a look at [configuration.nix](./artifacts/configuration.nix). You might want to configure a user or root's ssh keys. Run `./build-generic.sh`. The generated image will be created in `output/nixos.qcow2.gz`.
 
 
 ### Running locally
@@ -44,10 +46,4 @@ $ export DO_API_TOKEN=$(pass show do-tokens/personal)
 $ do-image-uploader --image-file=test-sparse.qcow2.gz --region=fra1 --name=test-image --wait-until-available
 
 ```
-
-
-## Customizing
-
-The last configuration [step](./artifacts/preseed.cfg#L70) runs the [post-install](./artifacts/post-install.sh) script. By default, this script runs the ansible [ansible playbook](./artifacts/playbook.yml).
-
 
