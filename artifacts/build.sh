@@ -46,6 +46,9 @@ fi
 set -e
 set -x
 
+nix-channel --add https://nixos.org/channels/nixos-20.09 nixpkgs
+nix-channel --update
+
 chmod a+rw /dev/kvm
 nix-env -i pigz
 
@@ -53,7 +56,7 @@ cd /tmp
 
 rm -f /output/nixos.qcow2 /output/nixos.qcow2.gz 
 
-nix-build --arg imageSize $image_size -I nixpkgs=https://github.com/NixOS/nixpkgs-channels/archive/nixos-20.03.tar.gz /input/image.nix
+nix-build --arg imageSize $image_size -I nixpkgs=https://github.com/NixOS/nixpkgs-channels/archive/nixos-20.09.tar.gz /input/image.nix
 
 
 cp /tmp/result/nixos.qcow2 /output/
